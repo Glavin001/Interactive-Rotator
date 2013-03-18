@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        
+        <title>Interactive Rotator</title>
+        
+        <base href="../" />
+        
+        <!-- External CSS Files -->
+        <link rel="stylesheet" href="Styles/rotator.css" />
+        
+        <!-- External JavaScript Files --->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="Scripts/rotator.js"></script>
+        <script>
+          
+          
+(function($,sr){
+
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          };
+
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 100);
+      };
+  }
+  // smartresize 
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'smartresize');
+
+/* === Event Listeners === */
+window.addEventListener("load", function(){ if(!window.pageYOffset){ resizeNewsFeed(); } } );
+$(window).smartresize( function () {
+   resizeNewsFeed();  
+});
+          
+          </script>
+        
+    </head>
+    <body>
+       
+      <div id="newsFeedContainer" style="">
+                <div id="newsFeed">
+                    <ul class="newsList">
+                        <li class="newsItem">
+                            <a class="newsLink" href="#" target="_blank">
+                                <div class="newsImage">
+                                <img src="http://www.smu.ca//webfiles/shelagh_crooks_slider.jpg" alt="Dr. Shelagh Crooks">
+                                </div>
+                                <div class="newsTitle">National Award for Saint Mary’s Professor</div>
+                            </a>
+                        </li><!--
+
+                        --><li class="newsItem">
+                            <a class="newsLink" href="#" target="_blank">
+                                <div class="newsImage">
+                                <img src="http://www.smu.ca//webfiles/t4_1843186125580896898.jpg" alt="Dr. Shelagh Crooks">
+                                </div>
+                                <div class="newsTitle">A Star on and Off the Court</div>
+                            </a>
+                        </li><!--
+
+                        --><li class="newsItem">
+                            <a class="newsLink" href="#" target="_blank">
+                                <div class="newsImage">
+                                <img src="http://www.smu.ca//webfiles/Farrah-Stevensslider.jpg" alt="Dr. Shelagh Crooks">
+                                </div>
+                                <div class="newsTitle">Stevens Nabs Aboriginal Student Award</div>
+                            </a>
+                        </li><!--
+
+                        --><li class="newsItem">
+                            <a class="newsLink" href="#" target="_blank">
+                                <div class="newsImage">
+                                <img src="http://www.smu.ca//webfiles/rituSLIDER.jpg" alt="Dr. Shelagh Crooks">
+                                </div>
+                                <div class="newsTitle">Federal Support for Cancer and the Cosmos Research</div>
+                            </a>
+                        </li><!--
+
+                        --><li class="newsItem">
+                            <a class="newsLink" href="#" target="_blank">
+                                <div class="newsImage">
+                                <img src="http://www.smu.ca//webfiles/SMURank.jpg" alt="Dr. Shelagh Crooks">
+                                </div>
+                                <div class="newsTitle">National Award for Saint Mary’s Professor</div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+    </body>
+</html>
