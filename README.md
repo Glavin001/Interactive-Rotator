@@ -4,7 +4,7 @@ Interactive-Rotator
 An interactive rotator through mouse-drags or mobile touch-drags.
 
 ##Requirements
-jQuery
+jQuery, jQuery Mobile
 
 ##Usage
 Note: Not yet implemented.
