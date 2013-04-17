@@ -8,3 +8,6 @@ jQuery, jQuery Mobile
 
 ##Usage
 Note: Not yet implemented.
+
+##Installation
+Coming soon.
